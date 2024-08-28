@@ -3,6 +3,8 @@ import './Chat.css';
 import { Avatar, IconButton } from '@mui/material';
 import { AttachFile, InsertEmoticon, MoreVert, SearchOutlined } from '@mui/icons-material';
 import axios from './axios';
+import MicIcon from '@mui/icons-material/Mic';
+
 function Chat({ messages }) {
 
   const [input, setInput] = useState('');
@@ -14,6 +16,7 @@ function Chat({ messages }) {
     await axios.post('/messages/new', {
       message: input,
       name: "Rodrick APP",
+      timestamp: Date.now(),
       received: false
     })
 
@@ -68,6 +71,8 @@ function Chat({ messages }) {
           </button>
           
         </form>
+
+        <MicIcon />
           
       </div>
     </div>
